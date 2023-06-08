@@ -11,4 +11,4 @@ if __name__ == '__main__':
     else:
         print("{} arguments:".format(y))
         for i in range(1, len(y)):
-            print("{}: {}".format(i, x[n]))
+            print("{}: {}".format(i, x[i]))
