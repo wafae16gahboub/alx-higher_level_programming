@@ -1,8 +1,14 @@
 #!/usr/bin/python3
-"""This class contains documentation for class Square"""
-"""__init__ method & instantiation of size after class Square:"""
+"""Define a class Square."""
 
 
 class Square:
+    """Represent a square."""
+
     def __init__(self, size):
+        """Initialize a new Square.
+
+        Args:
+            size (int): The size of the new square.
+        """
         self.__size = size
