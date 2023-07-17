@@ -174,17 +174,59 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
-        Franklin = turtle.Turtle()
-        Franklin.forward(50)
-        Franklin.right(90)     # Rotate clockwise by 90 degrees
+        """staticmethod"""
+        screen = turtle.Screen()
+        screen.setup(1200, 720)
+        t = turtle.Turtle()
+        t.penup()
+        t.goto(-turtle.window_width() / 2, turtle.window_height() / 2)
+        t.forward(50)
+        t.right(90)
+        t.forward(50)
+        t.left(90)
+        t.pendown()
 
-        Franklin.forward(50)
-        Franklin.right(90)
+        max_height = 0
 
-        Franklin.forward(50)
-        Franklin.right(90)
+        t.color("red", "pink")
+        for r in list_rectangles:
+            t.begin_fill()
+            t.forward(r.width)
+            t.right(90)
+            t.forward(r.height)
+            t.right(90)
+            t.forward(r.width)
+            t.right(90)
+            t.forward(r.height)
+            t.right(90)
+            t.end_fill()
+            t.penup()
+            t.forward(r.width + 50)
+            t.pendown()
+            max_height = r.height if r.height >= max_height else max_height
 
-        Franklin.forward(50)
-        Franklin.right(90)
+        t.penup()
+        t.goto(-turtle.window_width() / 2, turtle.window_height() / 2)
+        t.forward(50)
+        t.right(90)
+        t.forward(max_height + 100)
+        t.left(90)
+        t.pendown()
+
+        t.color("green", "cyan")
+        for s in list_squares:
+            t.begin_fill()
+            t.forward(s.size)
+            t.right(90)
+            t.forward(s.size)
+            t.right(90)
+            t.forward(s.size)
+            t.right(90)
+            t.forward(s.size)
+            t.right(90)
+            t.end_fill()
+            t.penup()
+            t.forward(s.size + 50)
+            t.pendown()
 
         turtle.done()
