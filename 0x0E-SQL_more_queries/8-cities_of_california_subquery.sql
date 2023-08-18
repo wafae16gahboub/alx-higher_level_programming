@@ -2,4 +2,4 @@
 -- can be found in the database
 use hbtn_0d_usa;
 
-SELECT  id , name FROM cities where state_id =1;
+SELECT  id , name FROM cities where state_id =1 order by id ASC; 
