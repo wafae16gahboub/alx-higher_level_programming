@@ -1,25 +1,22 @@
 #!/usr/bin/node
+const { argv: args } = require('process');
 
-function findSecondBiggest(numbers) {
-  if (numbers.length <= 1) {
-    return 0;
-  }
+const len = args.length;
 
-  let [biggest, secondBiggest] = [-Infinity, -Infinity];
+if (len === 2 || len === 3) {
+  console.log(0);
+} else {
+  let biggest = parseInt(args[2], 10);
+  let secBiggest = parseInt(args[3], 10);
 
-  for (let i = 0; i < numbers.length; i++) {
-    const currentNumber = parseInt(numbers[i], 10);
-
-    if (currentNumber > biggest) {
-      secondBiggest = biggest;
-      biggest = currentNumber;
-    } else if (currentNumber > secondBiggest && currentNumber < biggest) {
-      secondBiggest = currentNumber;
+  for (let i = 3; i < len; i++) {
+    const number = parseInt(args[i], 10);
+    if (number > biggest) {
+      secBiggest = biggest;
+      biggest = number;
+    } else if (number < biggest && number > secBiggest) {
+      secBiggest = number;
     }
   }
-
-  return secondBiggest;
+  console.log(secBiggest);
 }
-
-const args = process.argv.slice(2);
-console.log(findSecondBiggest(args));
