@@ -1,14 +1,13 @@
 #!/usr/bin/node
-let a;
-a = process.argv[2];
-if (isNaN(a) || a === null) {
+const a = process.argv[2];
+if (isNaN(a) || a == null) {
   console.log('Missing size');
 } else {
-  let inc ;
+  let inc;
   for (let i = 0; i < a; i++) {
-    inc = "";
+    inc = '';
     for (let j = 0; j < a; j++) {
-      inc += "X";
+      inc += 'X';
     }
 
     console.log(inc);
