@@ -1,29 +1,27 @@
 #!/usr/bin/node
-const Rectangle = class {
+
+class Rectangle {
   constructor (w, h) {
-    if (!Number.isInteger(w) || !Number.isInteger(h)) {
-      return;
+    if (w > 0 && h > 0) {
+      this.width = w;
+      this.height = h;
     }
-    if (w <= 0 || h <= 0) {
-      return;
-    }
-    this.width = w;
-    this.height = h;
   }
+
   print () {
     for (let i = 0; i < this.height; i++) {
       console.log('X'.repeat(this.width));
     }
   }
+
   rotate () {
-    let swap = this.height;
-    this.height = this.width;
-    this.width = swap;
+    [this.width, this.height] = [this.height, this.width];
   }
+
   double () {
-    this.height = this.height * 2;
-    this.width = this.width * 2;
+    this.width *= 2;
+    this.height *= 2;
   }
-};
-const rectangle = Rectangle;
-module.exports = rectangle;
+}
+
+module.exports = Rectangle;
