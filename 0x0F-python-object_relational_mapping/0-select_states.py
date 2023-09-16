@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" script that lists all states """
 
 if __name__ == "__main__":
     import MySQLdb
@@ -13,5 +14,4 @@ if __name__ == "__main__":
     g = cur.fetchall()
     for i in g:
         print(i)
-    cur.close()
     w.close()
